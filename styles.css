@@ -174,11 +174,6 @@ body{
   line-height:1.45;
   margin:0 0 6px;
 }
-.p.tiny{
-  font-size:10.6px;
-  line-height:1.45;
-  margin:0 0 6px;
-}
 .muted{ color: var(--muted); }
 
 .rule{
@@ -190,7 +185,6 @@ body{
 
 /* bullets */
 .bullets{ display:grid; gap:10px; }
-.bullets.tight{ gap:9px; }
 .b{ border:1px solid var(--line); background:rgba(255,255,255,.32); border-radius:14px; padding:10px; }
 .bT{
   font-size:11px;
@@ -282,11 +276,11 @@ body{
 
 /* CTA */
 .cta{
-  margin-top:14px;
+  margin-top:10px;
   border:1px solid rgba(24,46,87,.22);
   background:rgba(24,46,87,.06);
   border-radius:16px;
-  padding:12px;
+  padding:10px;
 }
 .ctaT{
   font-size:12px;
@@ -297,8 +291,8 @@ body{
   margin-bottom:6px;
 }
 .ctaS{
-  font-size:12px;
-  line-height:1.65;
+  font-size:11px;
+  line-height:1.55;
   color: rgba(14,22,39,.72);
 }
 .ctaD{
@@ -325,8 +319,6 @@ body{
   box-shadow: 0 10px 30px rgba(14,22,39,.08);
   transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
 }
-.navBtn:hover{ box-shadow: 0 0 0 4px rgba(24,46,87,.06); }
-.navBtn:active{ transform: translateY(-50%) scale(.98); }
 .navBtn.prev{ left:6px; }
 .navBtn.next{ right:6px; }
 .navBtn:disabled{ opacity:.35; cursor:default; }
@@ -356,18 +348,18 @@ body{
 }
 
 /* =========================
-   COMPACT PAGES (p3/p4)
+   COMPACT (p3/p4)
    ========================= */
 .paper.compact{ padding: 12px; }
 .paper.compact .pageFoot{ left:12px; right:12px; bottom:10px; }
 
-/* ===== p3 catalog: equal height cards ===== */
+/* p3: 6 tiles fixed, equal height */
 .catalogGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  padding-bottom: 40px; /* footer space */
-  grid-auto-rows: 1fr;  /* ✅ 행 높이 통일 */
+  padding-bottom: 38px; /* footer space */
+  grid-auto-rows: 1fr;
   align-items: stretch;
 }
 
@@ -377,11 +369,11 @@ body{
   border-radius:14px;
   padding:8px;
   overflow:hidden;
-
-  display:flex;              /* ✅ 내부 높이 정렬 */
+  display:flex;
   flex-direction:column;
   min-height: 0;
 }
+
 .blendMini .top{
   display:flex;
   align-items:baseline;
@@ -436,13 +428,16 @@ body{
   color: rgba(14,22,39,.70);
 }
 
-/* QR image area pinned to bottom */
+/* QR area (only used in first tile) */
 .qrBox{
-  margin-top:auto;           /* ✅ 아래로 밀착 */
+  margin-top:auto;
   padding-top:7px;
   border-top:1px dashed rgba(14,22,39,.16);
   display:flex;
   justify-content:flex-end;
+}
+.qrBox--center{
+  justify-content:center;
 }
 .qrImg{
   width: 54px;
@@ -451,8 +446,13 @@ body{
   border:1px solid rgba(14,22,39,.10);
   background:#fff;
 }
+.qrImg--big{
+  width: 74px;
+  height: 74px;
+  border-radius: 14px;
+}
 
-/* ===== p4 partners ===== */
+/* p4: benefits */
 .benefitGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -484,44 +484,29 @@ body{
   line-height:1.35;
   color: rgba(14,22,39,.62);
 }
-.benefitCard .bTag{
-  margin-top:6px;
-  font-size:10px;
-  color: rgba(24,46,87,.72);
-  letter-spacing:.06em;
-}
 
-.twoCol{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:8px;
-}
-.miniLine{
+/* 16.8g dose box */
+.doseBox{
   border:1px solid var(--line);
-  background:rgba(255,255,255,.26);
-  border-radius:14px;
-  padding:8px;
+  background:rgba(255,255,255,.24);
+  border-radius:16px;
+  padding:10px;
 }
-.miniLine .miniK{
-  font-size:10px;
-  margin-bottom:3px;
+.doseT{
+  font-size:11px;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color: rgba(24,46,87,.72);
+  color: rgba(24,46,87,.78);
   font-weight:900;
+  margin-bottom:6px;
 }
-.miniLine .miniV{
-  font-size:11px;
-  line-height:1.3;
-  color: rgba(14,22,39,.78);
-}
-.miniLine .miniD{
-  margin-top:6px;
-  font-size:10.6px;
-  line-height:1.35;
-  color: rgba(14,22,39,.60);
+.doseP{
+  font-size:10.9px;
+  line-height:1.45;
+  color: rgba(14,22,39,.70);
 }
 
+/* flow */
 .flow{
   margin-top:10px;
   border:1px solid var(--line);
@@ -568,14 +553,11 @@ body{
   color: rgba(14,22,39,.60);
 }
 
-.compactCta{ margin-top:10px; padding:10px; }
-.compactCta .ctaT{ margin-bottom:4px; }
-.compactCta .ctaS{ font-size:11px; }
-
-/* small screens extra safe */
+/* small screens */
 @media (max-width: 560px){
   .paper.compact{ padding: 10px; }
-  .catalogGrid, .benefitGrid, .twoCol, .flowGrid{ gap:7px; }
+  .catalogGrid, .benefitGrid, .flowGrid{ gap:7px; }
   .tagChip{ padding:3px 7px; font-size:9.5px; }
   .qrImg{ width: 50px; height: 50px; }
+  .qrImg--big{ width: 68px; height: 68px; }
 }

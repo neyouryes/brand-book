@@ -169,6 +169,16 @@ body{
   line-height:1.75;
   color: rgba(14,22,39,.78);
 }
+.p.small{
+  font-size:11px;
+  line-height:1.45;
+  margin:0 0 6px;
+}
+.p.tiny{
+  font-size:10.6px;
+  line-height:1.45;
+  margin:0 0 6px;
+}
 .muted{ color: var(--muted); }
 
 .rule{
@@ -176,6 +186,7 @@ body{
   height:1px;
   background: linear-gradient(90deg, rgba(14,22,39,.0), rgba(14,22,39,.16), rgba(14,22,39,.0));
 }
+.tightRule{ margin:10px 0; }
 
 /* bullets */
 .bullets{ display:grid; gap:10px; }
@@ -212,33 +223,6 @@ body{
   line-height:1.7;
   color: rgba(14,22,39,.74);
   letter-spacing:.04em;
-}
-
-/* mini cards */
-.miniGrid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:10px;
-  margin-top:14px;
-}
-.miniCard{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.32);
-  border-radius:14px;
-  padding:10px;
-}
-.miniK{
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color: rgba(24,46,87,.72);
-  font-weight:900;
-  margin-bottom:4px;
-}
-.miniV{
-  font-size:12px;
-  line-height:1.55;
-  color: rgba(14,22,39,.72);
 }
 
 /* footer in page */
@@ -294,9 +278,6 @@ body{
   border-radius: 16px;
   border: 1px solid var(--line);
   background: rgba(24,46,87,.06);
-  /* background-image:url('cover.jpg');
-     background-size:cover;
-     background-position:center; */
 }
 
 /* CTA */
@@ -319,6 +300,11 @@ body{
   font-size:12px;
   line-height:1.65;
   color: rgba(14,22,39,.72);
+}
+.ctaD{
+  margin-top:6px;
+  font-size:10.6px;
+  line-height:1.45;
 }
 
 /* nav buttons */
@@ -375,18 +361,14 @@ body{
 .paper.compact{ padding: 12px; }
 .paper.compact .pageFoot{ left:12px; right:12px; bottom:10px; }
 
-.paper.compact .block .p.small{
-  font-size: 11px;
-  line-height: 1.45;
-  margin: 0 0 6px;
-}
-
-/* p3 compact catalog */
+/* ===== p3 catalog: equal height cards ===== */
 .catalogGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  padding-bottom: 42px; /* footer space */
+  padding-bottom: 40px; /* footer space */
+  grid-auto-rows: 1fr;  /* ✅ 행 높이 통일 */
+  align-items: stretch;
 }
 
 .blendMini{
@@ -395,6 +377,10 @@ body{
   border-radius:14px;
   padding:8px;
   overflow:hidden;
+
+  display:flex;              /* ✅ 내부 높이 정렬 */
+  flex-direction:column;
+  min-height: 0;
 }
 .blendMini .top{
   display:flex;
@@ -420,6 +406,7 @@ body{
   letter-spacing:.06em;
   color: rgba(14,22,39,.55);
 }
+
 .tags{
   margin-top:6px;
   display:flex;
@@ -435,23 +422,37 @@ body{
   letter-spacing:.04em;
   color: rgba(14,22,39,.65);
 }
-.blendMini .one{
+
+.line{
   margin-top:6px;
   font-size:11px;
   line-height:1.35;
   color: rgba(14,22,39,.78);
 }
-.qrMini{
-  margin-top:6px;
-  padding-top:6px;
-  border-top:1px dashed rgba(14,22,39,.16);
-  font-size:10px;
-  color: rgba(14,22,39,.62);
-  letter-spacing:.04em;
+.one{
+  margin-top:5px;
+  font-size:10.7px;
+  line-height:1.35;
+  color: rgba(14,22,39,.70);
 }
-.infoMini .one{ color: rgba(14,22,39,.68); }
 
-/* p4 compact partners */
+/* QR image area pinned to bottom */
+.qrBox{
+  margin-top:auto;           /* ✅ 아래로 밀착 */
+  padding-top:7px;
+  border-top:1px dashed rgba(14,22,39,.16);
+  display:flex;
+  justify-content:flex-end;
+}
+.qrImg{
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  border:1px solid rgba(14,22,39,.10);
+  background:#fff;
+}
+
+/* ===== p4 partners ===== */
 .benefitGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -477,14 +478,18 @@ body{
   line-height:1.35;
   color: rgba(14,22,39,.62);
 }
+.benefitCard .bD{
+  margin-top:6px;
+  font-size:10.6px;
+  line-height:1.35;
+  color: rgba(14,22,39,.62);
+}
 .benefitCard .bTag{
   margin-top:6px;
   font-size:10px;
   color: rgba(24,46,87,.72);
   letter-spacing:.06em;
 }
-
-.tightRule{ margin:10px 0; }
 
 .twoCol{
   display:grid;
@@ -500,10 +505,67 @@ body{
 .miniLine .miniK{
   font-size:10px;
   margin-bottom:3px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color: rgba(24,46,87,.72);
+  font-weight:900;
 }
 .miniLine .miniV{
   font-size:11px;
   line-height:1.3;
+  color: rgba(14,22,39,.78);
+}
+.miniLine .miniD{
+  margin-top:6px;
+  font-size:10.6px;
+  line-height:1.35;
+  color: rgba(14,22,39,.60);
+}
+
+.flow{
+  margin-top:10px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.24);
+  border-radius:16px;
+  padding:10px;
+}
+.flowT{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color: rgba(24,46,87,.78);
+  font-weight:900;
+  margin-bottom:8px;
+}
+.flowGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:8px;
+}
+.flowCard{
+  border:1px solid rgba(14,22,39,.10);
+  background:rgba(255,255,255,.35);
+  border-radius:14px;
+  padding:8px;
+}
+.flowK{
+  font-size:10px;
+  letter-spacing:.14em;
+  color: rgba(24,46,87,.70);
+  font-weight:900;
+  margin-bottom:4px;
+}
+.flowV{
+  font-size:11px;
+  letter-spacing:.08em;
+  font-weight:900;
+  color: rgba(14,22,39,.78);
+  margin-bottom:4px;
+}
+.flowD{
+  font-size:10.6px;
+  line-height:1.35;
+  color: rgba(14,22,39,.60);
 }
 
 .compactCta{ margin-top:10px; padding:10px; }
@@ -513,7 +575,7 @@ body{
 /* small screens extra safe */
 @media (max-width: 560px){
   .paper.compact{ padding: 10px; }
-  .catalogGrid, .benefitGrid, .twoCol{ gap:7px; }
+  .catalogGrid, .benefitGrid, .twoCol, .flowGrid{ gap:7px; }
   .tagChip{ padding:3px 7px; font-size:9.5px; }
+  .qrImg{ width: 50px; height: 50px; }
 }
-

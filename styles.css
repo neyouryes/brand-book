@@ -332,12 +332,12 @@ body{
   .paper{ width: min(94vw, 420px); }
 }
 
-/* ===== p3: 6칸 동일 높이 ===== */
+/* ===== p3: 6칸 동일 높이 + 해시태그 안 가리기 ===== */
 .catalogGrid.fixed6{
   height:100%;
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap:10px;
+  gap:8px; /* ✅ 살짝 줄여서 여유 */
 }
 .catalogGrid.fixed6.equal{
   grid-template-rows: repeat(3, minmax(0, 1fr));
@@ -347,7 +347,7 @@ body{
   border:1px solid var(--line);
   background:rgba(255,255,255,.30);
   border-radius:16px;
-  padding:10px;
+  padding:9px; /* ✅ 살짝 축소 */
   min-height:0;
   overflow:hidden;
   display:flex;
@@ -369,59 +369,61 @@ body{
   color: rgba(14,22,39,.82);
 }
 .meta{
-  font-size:10.2px;
+  font-size:10.1px;
   letter-spacing:.04em;
   color: rgba(14,22,39,.55);
 }
 
+/* ✅ 2줄을 “끝까지” 보여주게 높이 늘리고, 칩 크기 살짝 줄임 */
 .tagsShort{
   display:flex;
   gap:6px;
   flex-wrap:wrap;
   overflow:hidden;
-  max-height:44px;
+  max-height:56px; /* ✅ 44 -> 56 : 2줄 안전 */
 }
 .tagChip{
   border:1px solid var(--line);
   background:rgba(255,255,255,.28);
   border-radius:999px;
-  padding:4px 8px;
-  font-size:10px;
+  padding:3px 7px;      /* ✅ 줄임 */
+  font-size:9.6px;      /* ✅ 줄임 */
+  line-height:1.2;
   color: rgba(14,22,39,.65);
   white-space:nowrap;
   margin-bottom:4px;
 }
 
 .line{
-  font-size:11.1px;
+  font-size:11px;
   line-height:1.45;
   color: rgba(14,22,39,.78);
 }
 .note{
-  font-size:10.6px;
-  line-height:1.35;
+  font-size:10.4px;
+  line-height:1.33;
   color: rgba(14,22,39,.68);
 }
 .noteWrap{
-  font-size:10.6px;
-  line-height:1.32;
+  font-size:10.4px;
+  line-height:1.30;
   color: rgba(14,22,39,.68);
 }
 
-/* ✅ QR: 무조건 작게 + 카드 안에서만 */
+/* ✅ QR: 작게 + 카드 안에서 절대 안 넘치게 */
 .qrOnly{
   margin-top:auto;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding-top:8px;
+  padding-top:6px;
   border-top:1px dashed rgba(14,22,39,.16);
 }
 .qrImgSm{
-  width:56px !important;
-  height:56px !important;
-  max-width:56px !important;
-  max-height:56px !important;
+  width:52px !important;
+  height:52px !important;
+  max-width:52px !important;
+  max-height:52px !important;
   display:block !important;
   object-fit:contain !important;
   border-radius:12px;
@@ -429,25 +431,26 @@ body{
   background:#fff;
 }
 
-/* ===== p4: 가독성/줄바꿈 ===== */
+/* ===== p4: 아래 안 가리게 “flow가 줄어드는 구조”로 변경 ===== */
+/* ✅ 핵심: 3번째 줄(flow)을 1fr로 해서 넘치면 여기서 먼저 줄어듦 */
 .p4Stack{
   height:100%;
   display:grid;
-  grid-template-rows: auto auto auto auto;
-  gap:10px;
+  grid-template-rows: auto auto 1fr auto;  /* ✅ auto auto auto auto -> auto auto 1fr auto */
+  gap:8px;                                  /* ✅ gap 축소 */
   overflow:hidden;
 }
 
 .benefitGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap:10px;
+  gap:8px;
 }
 .benefitCard{
   border:1px solid var(--line);
   background:rgba(255,255,255,.30);
   border-radius:16px;
-  padding:10px;
+  padding:9px; /* ✅ 축소 */
   overflow:hidden;
 }
 .benefitCard .bT{
@@ -459,14 +462,14 @@ body{
   margin-bottom:6px;
 }
 .benefitCard .bS{
-  font-size:10.9px;
-  line-height:1.40;
+  font-size:10.8px;
+  line-height:1.38;
   color: rgba(14,22,39,.62);
 }
 .benefitCard .bD{
   margin-top:6px;
-  font-size:10.6px;
-  line-height:1.40;
+  font-size:10.5px;
+  line-height:1.38;
   color: rgba(14,22,39,.62);
 }
 
@@ -474,7 +477,7 @@ body{
   border:1px solid var(--line);
   background:rgba(255,255,255,.24);
   border-radius:16px;
-  padding:10px;
+  padding:9px;
   overflow:hidden;
 }
 .doseT{
@@ -486,17 +489,19 @@ body{
   margin-bottom:6px;
 }
 .doseP{
-  font-size:10.8px;
-  line-height:1.40;
+  font-size:10.7px;
+  line-height:1.38;
   color: rgba(14,22,39,.70);
 }
 
+/* ✅ flow가 1fr 영역에서 “안 잘리게” 내부를 더 촘촘히 */
 .flow{
   border:1px solid var(--line);
   background:rgba(255,255,255,.24);
   border-radius:16px;
-  padding:10px;
+  padding:9px;
   overflow:hidden;
+  min-height:0; /* ✅ 1fr 안에서 수축 허용 */
 }
 .flowT{
   font-size:11px;
@@ -504,37 +509,38 @@ body{
   text-transform:uppercase;
   color: rgba(24,46,87,.78);
   font-weight:900;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 .flowGrid{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap:10px;
+  gap:8px;
+  min-height:0;
 }
 .flowCard{
   border:1px solid rgba(14,22,39,.10);
   background:rgba(255,255,255,.35);
   border-radius:14px;
-  padding:10px;
+  padding:8px; /* ✅ 축소 */
   overflow:hidden;
 }
 .flowK{
-  font-size:10px;
+  font-size:9.8px;
   letter-spacing:.14em;
   color: rgba(24,46,87,.70);
   font-weight:900;
   margin-bottom:6px;
 }
 .flowV{
-  font-size:11px;
+  font-size:10.8px;
   letter-spacing:.08em;
   font-weight:900;
   color: rgba(14,22,39,.78);
   margin-bottom:4px;
 }
 .flowD{
-  font-size:10.6px;
-  line-height:1.40;
+  font-size:10.4px;
+  line-height:1.35;
   color: rgba(14,22,39,.60);
 }
 

@@ -130,7 +130,6 @@ body{
 }
 .paperTop{ min-height:0; }
 
-/* ✅ 기본은 스크롤 가능하지만, 이번 수정으로 p4는 스크롤 없이 들어가도록 타이트 구성 */
 .paperMid{
   min-height:0;
   overflow:auto;
@@ -362,6 +361,10 @@ body{
 .bigNo{ font-size:12px; letter-spacing:.14em; }
 .bigNm{ font-size:12px; letter-spacing:.12em; }
 
+.oneLineTitle{
+  letter-spacing: .06em !important; /* ✅ 자간 줄여 1줄 고정 */
+}
+
 .meta{
   font-size:10.2px;
   letter-spacing:.04em;
@@ -370,26 +373,32 @@ body{
 .thinKr{
   font-size:10.4px;
   color: rgba(14,22,39,.55);
-  letter-spacing:.02em;
+  letter-spacing:.01em; /* ✅ 자간 줄임 */
 }
 
-/* INFO 채움 */
+/* INFO 2줄만 + 한줄 고정 */
 .infoFill{
   margin-top:6px;
   font-size:10.6px;
-  line-height:1.35;
+  line-height:1.25;
   color: rgba(14,22,39,.62);
 }
-.infoFill > div{ margin-bottom:4px; }
-.infoFill > div:last-child{ margin-bottom:0; }
+.compactInfo > div{
+  margin-bottom:4px;
+  letter-spacing: .01em;   /* ✅ 자간 줄임 */
+  white-space: nowrap;     /* ✅ 한 줄 고정 */
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.compactInfo > div:last-child{ margin-bottom:0; }
 
-/* tags: 더 안 잘리게 */
+/* tags: 안 잘리게 */
 .tagsWide{
   display:flex;
   gap:6px;
   flex-wrap:wrap;
   overflow:hidden;
-  max-height:72px;
+  max-height:80px; /* ✅ 해시태그 더 보이게 약간 증가 */
 }
 .tagChip{
   border:1px solid var(--line);
@@ -400,14 +409,14 @@ body{
   line-height:1.2;
   color: rgba(14,22,39,.65);
   white-space:nowrap;
-  margin-bottom:4px;
+  margin-bottom:3px;
 }
 
+/* ✅ 해시태그 아래 여백 줄임 */
 .spacer{ height:4px; }
+.spacer.tight{ height:2px; }
 
 .descBlock{ margin-top:2px; }
-
-/* ✅ 설명 2줄 모두 얇게 고정 */
 .descLine{
   font-size:11.2px;
   font-weight:400;
@@ -421,7 +430,7 @@ body{
   color: rgba(14,22,39,.62);
 }
 
-/* ✅ CUP NOTE 라벨 제거: 컵노트는 값만 */
+/* 컵노트 값만 */
 .cupNote{
   margin-top:auto;
   padding-top:6px;
@@ -433,7 +442,7 @@ body{
   line-height:1.35;
 }
 
-/* INFO: QR만 */
+/* QR */
 .qrOnly{
   margin-top:auto;
   display:flex;
@@ -471,7 +480,7 @@ body{
   border:1px solid var(--line);
   background:rgba(255,255,255,.30);
   border-radius:16px;
-  padding:8px; /* ✅ 타이트 */
+  padding:8px;
   overflow:hidden;
 }
 .benefitCard .bT{
@@ -487,12 +496,13 @@ body{
   line-height:1.40;
   color: rgba(14,22,39,.62);
 }
+.bSdim{ color: rgba(14,22,39,.52); } /* ✅ “설명” 줄은 살짝 연하게 */
 
 .doseBox{
   border:1px solid var(--line);
   background:rgba(255,255,255,.24);
   border-radius:16px;
-  padding:8px; /* ✅ 타이트 */
+  padding:8px;
 }
 .doseT{
   font-size:11px;
@@ -504,8 +514,16 @@ body{
 }
 .doseP{
   font-size:10.7px;
-  line-height:1.40;
+  line-height:1.35;
   color: rgba(14,22,39,.70);
+  margin-bottom:6px;
+}
+.doseBullets{
+  font-size:10.6px;
+  line-height:1.35;
+  color: rgba(14,22,39,.62);
+  display:grid;
+  gap:4px;
 }
 
 /* CTA */
@@ -513,7 +531,7 @@ body{
   border:1px solid rgba(24,46,87,.22);
   background:rgba(24,46,87,.06);
   border-radius:16px;
-  padding:9px; /* ✅ 타이트 */
+  padding:9px;
 }
 .ctaT{
   font-size:12px;

@@ -121,7 +121,7 @@ body{
   overflow:hidden;
 }
 
-/* ✅ 내부 고정 레이아웃 */
+/* 내부 고정 레이아웃 */
 .paperGrid{
   height:100%;
   display:grid;
@@ -129,7 +129,7 @@ body{
   gap: 10px;
 }
 .paperTop{ min-height:0; }
-.paperMid{ min-height:0; overflow:hidden; } /* ✅ 밖으로 못 나가게 */
+.paperMid{ min-height:0; overflow:hidden; }
 .paperFoot{
   font-size:11px;
   color: rgba(14,22,39,.55);
@@ -332,7 +332,7 @@ body{
   .paper{ width: min(94vw, 420px); }
 }
 
-/* ========= 핵심: 줄수 강제 ========= */
+/* 줄수 강제 */
 .clamp1,.clamp2,.clamp3{
   display:-webkit-box;
   -webkit-box-orient:vertical;
@@ -342,13 +342,15 @@ body{
 .clamp2{ -webkit-line-clamp:2; }
 .clamp3{ -webkit-line-clamp:3; }
 
-/* ========= p3: 6칸을 '페이지 안에서' 균등 분배 ========= */
+/* ===== p3: 6칸 동일 높이 + 페이지 안에서 균등 분배 ===== */
 .catalogGrid.fixed6{
   height:100%;
   display:grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr; /* ✅ 3줄 고정 */
   gap:10px;
+}
+.catalogGrid.fixed6.equal{
+  grid-template-rows: repeat(3, minmax(0, 1fr));
 }
 
 .tile{
@@ -357,12 +359,11 @@ body{
   border-radius:16px;
   padding:10px;
   min-height:0;
-  overflow:hidden; /* ✅ 카드 밖으로 못나감 */
+  overflow:hidden;
   display:flex;
   flex-direction:column;
   gap:6px;
 }
-
 .titleRow{ display:flex; align-items:baseline; gap:8px; }
 .no{
   font-size:11px;
@@ -383,12 +384,12 @@ body{
   color: rgba(14,22,39,.55);
 }
 
-/* 해시태그: 2개만, 한줄 */
 .tagsShort{
   display:flex;
   gap:6px;
-  flex-wrap:nowrap;
+  flex-wrap:wrap;       /* ✅ 3개도 깔끔하게 2줄 제한 */
   overflow:hidden;
+  max-height:44px;      /* ✅ 2줄까지만 */
 }
 .tagChip{
   border:1px solid var(--line);
@@ -398,12 +399,27 @@ body{
   font-size:10px;
   color: rgba(14,22,39,.65);
   white-space:nowrap;
+  margin-bottom:4px;
 }
-.line{ font-size:11.1px; line-height:1.45; color: rgba(14,22,39,.78); }
-.note{ font-size:10.6px; line-height:1.35; color: rgba(14,22,39,.68); }
 
-/* INFO QR */
-.tileInfo .qrCenter{
+.line{
+  font-size:11.1px;
+  line-height:1.45;
+  color: rgba(14,22,39,.78);
+}
+.note{
+  font-size:10.6px;
+  line-height:1.35;
+  color: rgba(14,22,39,.68);
+}
+.noteWrap{
+  font-size:10.6px;
+  line-height:1.32;
+  color: rgba(14,22,39,.68);
+}
+
+/* INFO: QR만 작게 */
+.qrOnly{
   margin-top:auto;
   display:flex;
   justify-content:center;
@@ -411,19 +427,19 @@ body{
   padding-top:8px;
   border-top:1px dashed rgba(14,22,39,.16);
 }
-.qrImgBig{
-  width: 70px;
-  height: 70px;
-  border-radius: 14px;
+.qrImgSm{
+  width:56px;
+  height:56px;
+  border-radius:12px;
   border:1px solid rgba(14,22,39,.10);
   background:#fff;
 }
 
-/* ========= p4: 내용량 제한 + 스택 간격 최소 ========= */
+/* ===== p4: 내용 스택 고정 + 가독성 줄바꿈 ===== */
 .p4Stack{
   height:100%;
   display:grid;
-  grid-template-rows: auto auto auto auto; /* benefit / dose / flow / cta */
+  grid-template-rows: auto auto auto auto;
   gap:10px;
   overflow:hidden;
 }
@@ -450,13 +466,13 @@ body{
 }
 .benefitCard .bS{
   font-size:10.9px;
-  line-height:1.4;
+  line-height:1.38;
   color: rgba(14,22,39,.62);
 }
 .benefitCard .bD{
   margin-top:6px;
   font-size:10.6px;
-  line-height:1.35;
+  line-height:1.38;
   color: rgba(14,22,39,.62);
 }
 
@@ -477,7 +493,7 @@ body{
 }
 .doseP{
   font-size:10.8px;
-  line-height:1.4;
+  line-height:1.38;
   color: rgba(14,22,39,.70);
 }
 
@@ -524,7 +540,7 @@ body{
 }
 .flowD{
   font-size:10.6px;
-  line-height:1.35;
+  line-height:1.38;
   color: rgba(14,22,39,.60);
 }
 

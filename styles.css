@@ -8,10 +8,9 @@
   --soft:rgba(24,46,87,.08);
   --shadow: 0 10px 30px rgba(14,22,39,.08);
 
-  /* print-ish sizes */
-  --pageW:100mm;
-  --pageH:150mm;
-  --gap:12px;
+  /* postcard ratio */
+  --ratioW: 2;
+  --ratioH: 3;
 }
 
 *{ box-sizing:border-box; }
@@ -95,31 +94,50 @@ body{
   margin: 0 auto;
   padding: 14px 14px 36px;
   display:grid;
-  gap: 18px;
+  gap: 12px;
 }
 
-/* Spread: 2 pages */
-.spread{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-  align-items:stretch;
-}
-
-/* page (print-like) */
-.page{
+/* viewer */
+.viewer{
   position:relative;
+  display:grid;
+  align-items:center;
+}
+
+.deck{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling: touch;
+  width:100%;
+  padding: 10px 0;
+  scrollbar-width:none;
+}
+.deck::-webkit-scrollbar{ display:none; }
+
+.slide{
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  display:grid;
+  place-items:center;
+  padding: 0;
+}
+
+/* actual postcard paper */
+.paper{
+  position:relative;
+  width: min(92vw, 420px);
+  aspect-ratio: var(--ratioW) / var(--ratioH);
   border:1px solid var(--line);
   background:rgba(255,255,255,.42);
   border-radius:18px;
   box-shadow: var(--shadow);
   padding:14px;
   overflow:hidden;
-
-  /* keep print proportion on desktop */
-  min-height: 520px;
 }
 
+/* page head */
 .pageHead{
   display:flex;
   align-items:baseline;
@@ -241,9 +259,7 @@ body{
 
 /* cover */
 .cover{ background: rgba(255,255,255,.36); }
-.coverInner{
-  padding:8px 4px 0;
-}
+.coverInner{ padding:8px 4px 0; }
 .kicker{
   font-size:11px;
   letter-spacing:.18em;
@@ -277,8 +293,27 @@ body{
   color: rgba(14,22,39,.76);
 }
 
+/* cover image placeholder */
+.coverMedia{
+  position:absolute;
+  left:14px; right:14px; bottom:38px;
+  height: 42%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(24,46,87,.06);
+  /* 나중에 여기만 바꿔서 사진 넣기
+  background-image:url('cover.jpg');
+  background-size:cover;
+  background-position:center;
+  */
+}
+
 /* catalog */
-.catalog{ display:grid; gap:10px; padding-bottom:44px; } /* leave room for footer */
+.catalog{
+  display:grid;
+  gap:10px;
+  padding-bottom:44px; /* footer space */
+}
 .catalogNote{
   border:1px solid var(--line);
   background:rgba(255,255,255,.30);
@@ -343,7 +378,7 @@ body{
 
 /* CTA */
 .cta{
-  margin-top:16px;
+  margin-top:14px;
   border:1px solid rgba(24,46,87,.22);
   background:rgba(24,46,87,.06);
   border-radius:16px;
@@ -363,6 +398,37 @@ body{
   color: rgba(14,22,39,.72);
 }
 
+/* nav buttons */
+.navBtn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.60);
+  backdrop-filter: blur(10px);
+  width:42px; height:42px;
+  border-radius:999px;
+  font-size:22px;
+  color: rgba(14,22,39,.72);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow: 0 10px 30px rgba(14,22,39,.08);
+  transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
+}
+.navBtn:hover{ box-shadow: 0 0 0 4px rgba(24,46,87,.06); }
+.navBtn:active{ transform: translateY(-50%) scale(.98); }
+.navBtn.prev{ left:6px; }
+.navBtn.next{ right:6px; }
+.navBtn:disabled{ opacity:.35; cursor:default; }
+
+.pagerMeta{
+  display:flex;
+  justify-content:center;
+  font-size:11px;
+  letter-spacing:.10em;
+}
+
 /* global footer */
 .globalFoot{
   padding: 0 14px 22px;
@@ -374,10 +440,25 @@ body{
   color: rgba(14,22,39,.55);
 }
 
-/* responsive: mobile = 1 page per row */
-@media (max-width: 860px){
-  .spread{ grid-template-columns: 1fr; }
-  .page{ min-height: auto; }
-  .pageFoot{ position:static; margin-top:12px; }
-  .catalog{ padding-bottom: 0; }
+/* responsive tweaks */
+@media (max-width: 560px){
+  .navBtn{ display:none; } /* 모바일은 스와이프로 충분 */
+  .paper{ width: min(94vw, 420px); }
+}
+
+/* print: optional postcard pages (each slide prints as one page) */
+@media print{
+  @page{ size: 100mm 150mm; margin: 0; }
+  body{ background:#fff; }
+  .topbar, .globalFoot, .navBtn, .pagerMeta{ display:none !important; }
+  .deck{ overflow: visible; }
+  .slide{ page-break-after: always; break-after: page; }
+  .paper{
+    width: 100mm;
+    height: 150mm;
+    aspect-ratio: auto;
+    border: 1px solid #bbb;
+    box-shadow: none;
+    border-radius: 0;
+  }
 }

@@ -121,7 +121,7 @@ body{
   overflow:hidden;
 }
 
-/* ✅ 내부 고정 레이아웃: 중간 영역은 "살짝 스크롤" 허용해서 절대 안 잘리게 */
+/* 내부 그리드 */
 .paperGrid{
   height:100%;
   display:grid;
@@ -129,10 +129,12 @@ body{
   gap: 10px;
 }
 .paperTop{ min-height:0; }
+
+/* ✅ 기본은 스크롤 가능하지만, 이번 수정으로 p4는 스크롤 없이 들어가도록 타이트 구성 */
 .paperMid{
   min-height:0;
-  overflow:auto;               /* ✅ 가려지면 여기에서 스크롤로라도 보이게 */
-  padding-right:6px;           /* ✅ 스크롤 생길 때 텍스트 가림 방지 */
+  overflow:auto;
+  padding-right:6px;
 }
 .paperMid::-webkit-scrollbar{ width:6px; }
 .paperMid::-webkit-scrollbar-thumb{ background: rgba(14,22,39,.12); border-radius:999px; }
@@ -371,13 +373,23 @@ body{
   letter-spacing:.02em;
 }
 
+/* INFO 채움 */
+.infoFill{
+  margin-top:6px;
+  font-size:10.6px;
+  line-height:1.35;
+  color: rgba(14,22,39,.62);
+}
+.infoFill > div{ margin-bottom:4px; }
+.infoFill > div:last-child{ margin-bottom:0; }
+
 /* tags: 더 안 잘리게 */
 .tagsWide{
   display:flex;
   gap:6px;
   flex-wrap:wrap;
   overflow:hidden;
-  max-height:64px;      /* ✅ 넉넉하게 */
+  max-height:72px;
 }
 .tagChip{
   border:1px solid var(--line);
@@ -394,31 +406,26 @@ body{
 .spacer{ height:4px; }
 
 .descBlock{ margin-top:2px; }
-.descStrong{
+
+/* ✅ 설명 2줄 모두 얇게 고정 */
+.descLine{
   font-size:11.2px;
-  font-weight:900;
-  color: rgba(14,22,39,.80);
+  font-weight:400;
+  color: rgba(14,22,39,.78);
   line-height:1.35;
 }
-.descSub{
+.descLine.sub{
   margin-top:2px;
-  font-size:10.8px;
+  font-size:10.9px;
+  font-weight:400;
   color: rgba(14,22,39,.62);
-  line-height:1.35;
 }
 
+/* ✅ CUP NOTE 라벨 제거: 컵노트는 값만 */
 .cupNote{
   margin-top:auto;
   padding-top:6px;
   border-top:1px dashed rgba(14,22,39,.16);
-}
-.cupK{
-  font-size:10px;
-  letter-spacing:.10em;
-  font-weight:900;
-  text-transform:uppercase;
-  color: rgba(24,46,87,.72);
-  margin-bottom:3px;
 }
 .cupV{
   font-size:10.7px;
@@ -451,8 +458,8 @@ body{
 .p4Stack{
   height:100%;
   display:grid;
-  grid-template-rows: auto auto auto auto;
-  gap:8px;
+  grid-template-rows: auto auto auto;
+  gap:6px;
 }
 
 .benefitGrid{
@@ -464,7 +471,7 @@ body{
   border:1px solid var(--line);
   background:rgba(255,255,255,.30);
   border-radius:16px;
-  padding:9px;
+  padding:8px; /* ✅ 타이트 */
   overflow:hidden;
 }
 .benefitCard .bT{
@@ -476,13 +483,7 @@ body{
   margin-bottom:6px;
 }
 .benefitCard .bS{
-  font-size:10.8px;
-  line-height:1.40;
-  color: rgba(14,22,39,.62);
-}
-.benefitCard .bD{
-  margin-top:6px;
-  font-size:10.5px;
+  font-size:10.7px;
   line-height:1.40;
   color: rgba(14,22,39,.62);
 }
@@ -491,7 +492,7 @@ body{
   border:1px solid var(--line);
   background:rgba(255,255,255,.24);
   border-radius:16px;
-  padding:9px;
+  padding:8px; /* ✅ 타이트 */
 }
 .doseT{
   font-size:11px;
@@ -507,58 +508,12 @@ body{
   color: rgba(14,22,39,.70);
 }
 
-.flow{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.24);
-  border-radius:16px;
-  padding:9px;
-}
-.flowT{
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color: rgba(24,46,87,.78);
-  font-weight:900;
-  margin-bottom:6px;
-}
-.flowGrid{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap:8px;
-}
-.flowCard{
-  border:1px solid rgba(14,22,39,.10);
-  background:rgba(255,255,255,.35);
-  border-radius:14px;
-  padding:8px;
-  overflow:hidden;
-}
-.flowK{
-  font-size:9.8px;
-  letter-spacing:.14em;
-  color: rgba(24,46,87,.70);
-  font-weight:900;
-  margin-bottom:6px;
-}
-.flowV{
-  font-size:10.8px;
-  letter-spacing:.08em;
-  font-weight:900;
-  color: rgba(14,22,39,.78);
-  margin-bottom:4px;
-}
-.flowD{
-  font-size:10.4px;
-  line-height:1.35;
-  color: rgba(14,22,39,.60);
-}
-
 /* CTA */
 .cta{
   border:1px solid rgba(24,46,87,.22);
   background:rgba(24,46,87,.06);
   border-radius:16px;
-  padding:10px;
+  padding:9px; /* ✅ 타이트 */
 }
 .ctaT{
   font-size:12px;

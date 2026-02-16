@@ -3,39 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>To. coffee haus | Brand Book</title>
-  <link rel="stylesheet" href="brandbook.css" />
+  <title>T.C.H | Brand Book</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <a class="brandMark" href="#" id="homeBtn" aria-label="To. coffee haus home">
-      <span class="tch">T.C.H</span>
-      <span class="dots" aria-hidden="true">
-        <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
-      </span>
-    </a>
+  <header class="header">
+    <div class="brand">
+      <a class="brandMark" href="#s=0" id="homeBtn" aria-label="T.C.H home">
+        <span class="tch">T.C.H</span>
+        <span class="dots" aria-hidden="true">
+          <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+        </span>
+      </a>
 
-    <div class="topMeta">
-      <div class="bbTitle">BRAND BOOK</div>
-      <div class="bbSub">100×150 · 4 panels · spread preview</div>
+      <div class="brandText">
+        <div class="name">BRAND BOOK</div>
+        <div class="tag">100×150 · 4 panels · spread preview</div>
+      </div>
     </div>
 
-    <div class="navBtns">
+    <div class="nav">
       <button class="navBtn" id="prevBtn" type="button" aria-label="Previous spread">←</button>
-      <div class="navState"><span id="spreadTxt">1</span> / <span id="spreadTotal">2</span></div>
+      <div class="navMeta">
+        <div class="counter"><span id="pageNow">1</span> / <span id="pageAll">2</span></div>
+        <div class="hint">Desktop: 좌우 스프레드 · Mobile: 스크롤 미리보기</div>
+      </div>
       <button class="navBtn" id="nextBtn" type="button" aria-label="Next spread">→</button>
     </div>
   </header>
 
-  <main class="stage" aria-label="Brand book preview">
-    <!-- spread frame -->
-    <section class="spreadFrame" id="spreadFrame">
-      <div class="spread" id="spread"></div>
+  <main class="main">
+    <!-- Spread Preview -->
+    <section class="stage">
+      <div class="spread" id="spread">
+        <!-- JS inject panels -->
+      </div>
+
+      <!-- Mobile: all panels (stack) -->
+      <section class="stack" id="stack" aria-label="All panels preview">
+        <!-- JS inject panels -->
+      </section>
     </section>
 
     <footer class="foot">© To. coffee haus</footer>
   </main>
 
-  <script src="brandbook.js"></script>
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

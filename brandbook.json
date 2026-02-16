@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "To. coffee haus Brand Book",
+    "edition": "2026",
+    "format": "100x150",
+    "panels": 4
+  },
+  "pages": [
+    {
+      "id": "cover",
+      "kicker": "TO. COFFEE HAUS",
+      "h1": "ARCHIVE / BLEND",
+      "h2": "Brand Book 2026",
+      "body": "향은 흐르고,\n안정은 쌓인다.\n\nWe provide standards, not just beans."
+    },
+    {
+      "id": "philosophy",
+      "kicker": "BLEND PHILOSOPHY",
+      "h1": "BLEND IS A ROLE.",
+      "h2": "Five standards for every bar",
+      "body": "원두는 맛으로 고르지 않습니다.\n역할로 고릅니다.\n\n매장에는 항상 다섯 가지 기준이 필요합니다.",
+      "roles": [
+        { "left": "NO.1", "right": "DAILY" },
+        { "left": "NO.2", "right": "SIGNATURE" },
+        { "left": "NO.3", "right": "SWEETNESS" },
+        { "left": "NO.4", "right": "DARK" },
+        { "left": "NO.5", "right": "DECAFFEINE" }
+      ]
+    },
+    {
+      "id": "five-blends",
+      "kicker": "THE FIVE BLENDS",
+      "h1": "LINEUP",
+      "h2": "NO.1 — NO.5",
+      "blends": [
+        {
+          "no": "NO.1",
+          "name": "DAILY",
+          "one": "가볍고 산뜻한 고소함. 마시기 편안한 데일리 블렌드.",
+          "notes": ["Cashew Nut", "Caramel", "Milk Chocolate"]
+        },
+        {
+          "no": "NO.2",
+          "name": "SIGNATURE",
+          "one": "버건디 톤의 우아함. 깊은 과일향과 진득한 단맛.",
+          "notes": ["Kyoho Grape", "Dried Plum", "Red Wine", "Syrup"]
+        },
+        {
+          "no": "NO.3",
+          "name": "SWEETNESS",
+          "one": "티라미수를 닮은 크리미함. 달콤쌉싸름한 디저트 감각.",
+          "notes": ["Tiramisu", "Digestive Cookie", "Oatmeal"]
+        },
+        {
+          "no": "NO.4",
+          "name": "DARK",
+          "one": "섬세한 블랙의 부드러운 카리스마. 묵직하지만 거칠지 않게.",
+          "notes": ["Dark Chocolate", "Roasted Walnut", "Long Finish"]
+        },
+        {
+          "no": "NO.5",
+          "name": "DECAFFEINE",
+          "one": "홍시를 닮은 달콤함. 밤에도 가능한 휴식 같은 커피.",
+          "notes": ["Persimmon", "Caramel", "Popcorn", "Juicy"]
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "kicker": "PARTNERS",
+      "h1": "PARTNERSHIP",
+      "h2": "Continuity & clarity",
+      "body": "To. coffee haus는 원두를 납품하지 않습니다.\n기준을 제공합니다.",
+      "blocks": [
+        {
+          "title": "STRUCTURE",
+          "items": ["5 Blend lineup", "Standard recipe set", "Archive updates"]
+        },
+        {
+          "title": "SUPPORT",
+          "items": ["Recipe tuning", "Seasonal updates", "Brew guidance"]
+        },
+        {
+          "title": "COMMUNICATION",
+          "items": ["Video archive", "Manual sheets", "Staff guide"]
+        }
+      ]
+    }
+  ]
+}

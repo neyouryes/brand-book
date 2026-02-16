@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>T.C.H | Brand Book</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <title>T.C.H | Brand Book Preview</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="header">
     <div class="brand">
-      <a class="brandMark" href="#s=0" id="homeBtn" aria-label="T.C.H home">
+      <a class="brandMark" href="#" id="homeBtn" aria-label="T.C.H home">
         <span class="tch">T.C.H</span>
         <span class="dots" aria-hidden="true">
           <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
@@ -22,33 +22,33 @@
       </div>
     </div>
 
-    <div class="nav">
-      <button class="navBtn" id="prevBtn" type="button" aria-label="Previous spread">←</button>
-      <div class="navMeta">
-        <div class="counter"><span id="pageNow">1</span> / <span id="pageAll">2</span></div>
-        <div class="hint">Desktop: 좌우 스프레드 · Mobile: 스크롤 미리보기</div>
+    <div class="tools">
+      <div class="navRow">
+        <button class="navBtn" id="prevBtn" type="button" aria-label="Previous spread">←</button>
+        <div class="pageMeta">
+          <span id="pageTxt">1/2</span>
+          <span class="dotSep">·</span>
+          <span class="muted">© To. coffee haus</span>
+        </div>
+        <button class="navBtn" id="nextBtn" type="button" aria-label="Next spread">→</button>
       </div>
-      <button class="navBtn" id="nextBtn" type="button" aria-label="Next spread">→</button>
+
+      <div class="hintRow">
+        <span class="hint">Tip: 모바일은 세로로 “두 장(스프레드)” 미리보기 · PC는 실제 100×150 비율로 보기 좋아</span>
+      </div>
     </div>
   </header>
 
   <main class="main">
-    <!-- Spread Preview -->
-    <section class="stage">
-      <div class="spread" id="spread">
-        <!-- JS inject panels -->
+    <section class="stageWrap">
+      <div class="stage" id="stage" aria-label="Brand book spread preview">
+        <!-- JS renders spread -->
       </div>
-
-      <!-- Mobile: all panels (stack) -->
-      <section class="stack" id="stack" aria-label="All panels preview">
-        <!-- JS inject panels -->
-      </section>
     </section>
 
     <footer class="foot">© To. coffee haus</footer>
   </main>
 
-  <script src="./data.js"></script>
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

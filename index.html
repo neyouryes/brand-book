@@ -3,52 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>T.C.H | Brand Book Preview</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>To. coffee haus | Brand Book</title>
+  <link rel="stylesheet" href="book.css" />
 </head>
 <body>
   <header class="header">
     <div class="brand">
-      <a class="brandMark" href="#" id="homeBtn" aria-label="T.C.H home">
+      <a class="brandMark" href="#" id="homeBtn" aria-label="To. coffee haus home">
         <span class="tch">T.C.H</span>
         <span class="dots" aria-hidden="true">
           <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
         </span>
       </a>
-
       <div class="brandText">
-        <div class="name">BRAND BOOK</div>
-        <div class="tag">100×150 · 4 panels · spread preview</div>
+        <div class="name">TO. COFFEE HAUS</div>
+        <div class="tag">brand book · partners</div>
       </div>
     </div>
 
     <div class="tools">
       <div class="navRow">
-        <button class="navBtn" id="prevBtn" type="button" aria-label="Previous spread">←</button>
-        <div class="pageMeta">
-          <span id="pageTxt">1/2</span>
-          <span class="dotSep">·</span>
-          <span class="muted">© To. coffee haus</span>
-        </div>
-        <button class="navBtn" id="nextBtn" type="button" aria-label="Next spread">→</button>
+        <button class="btn" id="prevBtn" type="button">← Prev</button>
+        <div class="meta"><span id="spreadName">Spread 01</span> · <span id="pageHint">01–02</span></div>
+        <button class="btn" id="nextBtn" type="button">Next →</button>
       </div>
 
-      <div class="hintRow">
-        <span class="hint">Tip: 모바일은 세로로 “두 장(스프레드)” 미리보기 · PC는 실제 100×150 비율로 보기 좋아</span>
+      <div class="seg">
+        <button class="segBtn isOn" data-spread="0" type="button">01–02</button>
+        <button class="segBtn" data-spread="1" type="button">03–04</button>
       </div>
     </div>
   </header>
 
   <main class="main">
-    <section class="stageWrap">
-      <div class="stage" id="stage" aria-label="Brand book spread preview">
-        <!-- JS renders spread -->
-      </div>
-    </section>
+    <section class="stage">
+      <!-- spread container -->
+      <div class="spreadWrap">
+        <div class="spread" id="spread">
+          <!-- LEFT PAGE -->
+          <article class="page" id="pageL" aria-label="Left page"></article>
 
-    <footer class="foot">© To. coffee haus</footer>
+          <!-- RIGHT PAGE -->
+          <article class="page" id="pageR" aria-label="Right page"></article>
+        </div>
+      </div>
+
+      <footer class="foot">© To. coffee haus</footer>
+    </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="book.js"></script>
 </body>
 </html>

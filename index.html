@@ -18,13 +18,13 @@
       </div>
       <div class="brandText">
         <div class="name">TO. COFFEE HAUS</div>
-        <div class="tag">brand book · 4 spreads</div>
+        <div class="tag">brand book · 4 pages</div>
       </div>
     </div>
 
     <nav class="nav">
       <a href="#p1" class="navItem">01 Cover</a>
-      <a href="#p2" class="navItem">02 Blend</a>
+      <a href="#p2" class="navItem">02 Brand</a>
       <a href="#p3" class="navItem">03 Catalog</a>
       <a href="#p4" class="navItem">04 Partners</a>
     </nav>
@@ -32,9 +32,11 @@
 
   <main class="wrap">
 
-    <!-- PAGE 1 / COVER -->
-    <section id="p1" class="spread">
-      <article class="page left cover">
+    <!-- SPREAD 1 : PAGE 01 + 02 -->
+    <section class="spread">
+
+      <!-- PAGE 1 / COVER (간단 표지 + 나중에 사진 넣기 쉽게 coverMedia 자리) -->
+      <article id="p1" class="page left cover cover--simple">
         <div class="coverInner">
           <div class="kicker">To. coffee haus</div>
           <h1 class="coverTitle">BLEND ARCHIVE</h1>
@@ -48,45 +50,19 @@
           </p>
         </div>
 
+        <!-- 사진 들어갈 자리(나중에 background-image로 처리하거나 img로 교체) -->
+        <div class="coverMedia" aria-hidden="true"></div>
+
         <footer class="pageFoot">
           <span>© To. coffee haus</span>
         </footer>
       </article>
 
-      <article class="page right">
-        <div class="pageHead">
-          <div class="pageNo">01</div>
-          <div class="pageName">Cover</div>
-        </div>
-
-        <div class="block">
-          <div class="h2">A note</div>
-          <p class="p">
-            이 브랜드북은 100×150mm 기준의<br/>
-            좌우 열람(스프레드) 레이아웃으로 설계되었습니다.
-          </p>
-          <p class="p muted">
-            웹에서 먼저 구성 → Adobe에서 동일하게 재현 → 2단 엽서 제작
-          </p>
-        </div>
-
-        <div class="miniCard">
-          <div class="miniK">Palette</div>
-          <div class="miniV">Paper · Ivory · Navy · Ink</div>
-        </div>
-
-        <footer class="pageFoot">
-          <span class="muted">Spread size: 200×150mm</span>
-        </footer>
-      </article>
-    </section>
-
-    <!-- PAGE 2 / BLEND INTRO -->
-    <section id="p2" class="spread">
-      <article class="page left">
+      <!-- PAGE 2 / BRAND DESCRIPTION (기존 p2 left+right 내용을 한 페이지에 정리) -->
+      <article id="p2" class="page right">
         <div class="pageHead">
           <div class="pageNo">02</div>
-          <div class="pageName">Blend</div>
+          <div class="pageName">Brand</div>
         </div>
 
         <div class="block">
@@ -119,52 +95,23 @@
           </div>
         </div>
 
-        <footer class="pageFoot">
-          <span class="muted">To. coffee haus · blend philosophy</span>
-        </footer>
-      </article>
-
-      <article class="page right">
-        <div class="pageHead">
-          <div class="pageNo">02</div>
-          <div class="pageName">What you get</div>
-        </div>
-
-        <div class="block">
-          <div class="h2">For everyday</div>
-          <p class="p">
-            커피는 결국 일상에서 가장 오래 남습니다.<br/>
-            그래서 우리는 “매일 마시기 좋은데, 쉽게 잊히지 않는” 균형을 목표로 합니다.
-          </p>
-        </div>
-
         <div class="quote">
           <div class="qMark">“</div>
-          <div class="qText">
-            익숙함 속에 디테일이 남는 한 잔.
-          </div>
-        </div>
-
-        <div class="miniGrid">
-          <div class="miniCard">
-            <div class="miniK">Roast</div>
-            <div class="miniV">Light → Dark line-up</div>
-          </div>
-          <div class="miniCard">
-            <div class="miniK">Usage</div>
-            <div class="miniV">Espresso · Filter · Iced</div>
-          </div>
+          <div class="qText">익숙함 속에 디테일이 남는 한 잔.</div>
         </div>
 
         <footer class="pageFoot">
-          <span class="muted">Next: Blend Catalog</span>
+          <span class="muted">To. coffee haus · brand description</span>
         </footer>
       </article>
+
     </section>
 
-    <!-- PAGE 3 / CATALOG (네가 방금 만든 원두 소개 + ORIGIN 포함) -->
-    <section id="p3" class="spread">
-      <article class="page left">
+    <!-- SPREAD 2 : PAGE 03 + 04 -->
+    <section class="spread">
+
+      <!-- PAGE 3 / CATALOG (카탈로그 페이지 = intro + line-up 한 페이지에 스크롤/압축) -->
+      <article id="p3" class="page left">
         <div class="pageHead">
           <div class="pageNo">03</div>
           <div class="pageName">Catalog</div>
@@ -187,17 +134,7 @@
           </div>
         </div>
 
-        <footer class="pageFoot">
-          <span class="muted">To. coffee haus · blend catalog</span>
-        </footer>
-      </article>
-
-      <article class="page right">
-        <div class="pageHead">
-          <div class="pageNo">03</div>
-          <div class="pageName">Blend line-up</div>
-        </div>
-
+        <!-- 카탈로그 카드(원본 그대로) -->
         <div class="catalog">
 
           <div class="blendCard">
@@ -298,14 +235,12 @@
         </div>
 
         <footer class="pageFoot">
-          <span class="muted">Next: Partners</span>
+          <span class="muted">To. coffee haus · blend catalog</span>
         </footer>
       </article>
-    </section>
 
-    <!-- PAGE 4 / PARTNERS BENEFITS -->
-    <section id="p4" class="spread">
-      <article class="page left">
+      <!-- PAGE 4 / PARTNERS BENEFITS (기존 p4 left+right 합치기) -->
+      <article id="p4" class="page right">
         <div class="pageHead">
           <div class="pageNo">04</div>
           <div class="pageName">Partners</div>
@@ -344,16 +279,7 @@
           </div>
         </div>
 
-        <footer class="pageFoot">
-          <span class="muted">To. coffee haus · partners program</span>
-        </footer>
-      </article>
-
-      <article class="page right">
-        <div class="pageHead">
-          <div class="pageNo">04</div>
-          <div class="pageName">Efficiency</div>
-        </div>
+        <div class="rule"></div>
 
         <div class="block">
           <div class="h2">16.8g Standard</div>
@@ -395,6 +321,7 @@
           <span>© To. coffee haus</span>
         </footer>
       </article>
+
     </section>
 
   </main>

@@ -5,7 +5,6 @@
   --paper:#FAF8F3;
   --line:rgba(14,22,39,.14);
   --muted:rgba(14,22,39,.62);
-  --soft:rgba(24,46,87,.08);
   --shadow: 0 10px 30px rgba(14,22,39,.08);
 
   /* postcard ratio 100x150 = 2:3 */
@@ -98,11 +97,7 @@ body{
 }
 
 /* viewer */
-.viewer{
-  position:relative;
-  display:grid;
-  align-items:center;
-}
+.viewer{ position:relative; display:grid; align-items:center; }
 
 .deck{
   display:flex;
@@ -124,7 +119,7 @@ body{
   padding: 0;
 }
 
-/* actual postcard paper */
+/* postcard paper */
 .paper{
   position:relative;
   width: min(92vw, 420px);
@@ -159,7 +154,7 @@ body{
   color: var(--navy);
 }
 
-/* text blocks */
+/* text */
 .block{ margin-top:4px; }
 .h2{
   font-size:12px;
@@ -185,7 +180,7 @@ body{
 /* bullets */
 .bullets{ display:grid; gap:10px; }
 .bullets.tight{ gap:9px; }
-.b{ border:1px solid var(--line); background:rgba(255,255,255,.32); border-radius:14px; padding:10px 10px; }
+.b{ border:1px solid var(--line); background:rgba(255,255,255,.32); border-radius:14px; padding:10px; }
 .bT{
   font-size:11px;
   letter-spacing:.12em;
@@ -246,7 +241,7 @@ body{
   color: rgba(14,22,39,.72);
 }
 
-/* footer inside page */
+/* footer in page */
 .pageFoot{
   position:absolute;
   left:14px; right:14px; bottom:12px;
@@ -292,8 +287,6 @@ body{
   line-height:1.8;
   color: rgba(14,22,39,.76);
 }
-
-/* cover image placeholder */
 .coverMedia{
   position:absolute;
   left:14px; right:14px; bottom:38px;
@@ -301,102 +294,9 @@ body{
   border-radius: 16px;
   border: 1px solid var(--line);
   background: rgba(24,46,87,.06);
-  /* 나중에 여기만 바꿔서 사진 넣기
-  background-image:url('cover.jpg');
-  background-size:cover;
-  background-position:center;
-  */
-}
-
-/* catalog */
-.catalog{
-  display:grid;
-  gap:10px;
-  padding-bottom:44px; /* footer space */
-}
-.catalogNote{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.30);
-  border-radius:14px;
-  padding:10px;
-}
-
-.blendCard{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.32);
-  border-radius:16px;
-  padding:10px 10px;
-}
-.row1{
-  display:flex;
-  align-items:baseline;
-  gap:10px;
-}
-.no{
-  font-size:12px;
-  letter-spacing:.14em;
-  font-weight:900;
-  color: rgba(24,46,87,.80);
-}
-.nm{
-  font-size:12px;
-  letter-spacing:.12em;
-  font-weight:900;
-  color: rgba(14,22,39,.80);
-  text-transform:uppercase;
-}
-.meta{
-  margin-top:6px;
-  font-size:11px;
-  letter-spacing:.08em;
-  color: rgba(14,22,39,.58);
-}
-.desc{
-  margin:8px 0 0;
-  font-size:12px;
-  line-height:1.7;
-  color: rgba(14,22,39,.74);
-}
-.notes{
-  margin-top:8px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-/* chips */
-.chip{
-  display:inline-block;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.30);
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:11px;
-  color: rgba(14,22,39,.62);
-  letter-spacing:.06em;
-}
-
-/* QR line (text placeholder for your actual QR link) */
-.qr{
-  margin-top:8px;
-  display:flex;
-  gap:8px;
-  align-items:baseline;
-  border-top:1px dashed rgba(14,22,39,.16);
-  padding-top:8px;
-}
-.qrK{
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color: rgba(24,46,87,.72);
-  font-weight:900;
-}
-.qrV{
-  font-size:11px;
-  letter-spacing:.06em;
-  color: rgba(14,22,39,.62);
-  word-break: break-all;
+  /* background-image:url('cover.jpg');
+     background-size:cover;
+     background-position:center; */
 }
 
 /* CTA */
@@ -465,164 +365,155 @@ body{
 
 /* responsive tweaks */
 @media (max-width: 560px){
-  .navBtn{ display:none; } /* 모바일은 스와이프로 충분 */
+  .navBtn{ display:none; }
   .paper{ width: min(94vw, 420px); }
 }
 
 /* =========================
-   PRINT (Postcard) MODE
-   100mm x 150mm / 4 pages
-   Catalog = compact + QR (text)
+   COMPACT PAGES (p3/p4)
    ========================= */
-@media print{
-  @page{ size: 100mm 150mm; margin: 0; }
+.paper.compact{ padding: 12px; }
+.paper.compact .pageFoot{ left:12px; right:12px; bottom:10px; }
 
-  .topbar, .globalFoot, .navBtn, .pagerMeta{ display:none !important; }
-  body{ background:#fff !important; }
-
-  .deck{ overflow: visible !important; display:block !important; padding:0 !important; }
-  .slide{
-    page-break-after: always;
-    break-after: page;
-    display:block !important;
-    padding:0 !important;
-  }
-
-  .paper{
-    width: 100mm !important;
-    height: 150mm !important;
-    aspect-ratio: auto !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background:#fff !important;
-    border: none !important;
-
-    padding: 7mm !important;
-    overflow: hidden !important;
-  }
-
-  /* tighten typography */
-  .h2{ font-size: 9.5pt !important; margin:0 0 2.4mm !important; }
-  .p{ font-size: 9.2pt !important; line-height: 1.42 !important; margin:0 0 2.1mm !important; }
-  .pageHead{ padding-bottom: 2.4mm !important; margin-bottom: 2.4mm !important; }
-  .pageNo, .pageName{ font-size: 9pt !important; }
-  .rule{ margin: 2.8mm 0 !important; }
-  .muted{ color:#666 !important; }
-
-  .pageFoot{
-    position:absolute !important;
-    left: 7mm !important;
-    right: 7mm !important;
-    bottom: 6mm !important;
-    font-size: 8.4pt !important;
-    color:#777 !important;
-  }
-
-  /* cover print */
-  .coverTitle{ font-size: 20pt !important; letter-spacing:.08em !important; }
-  .coverSub{ font-size: 9pt !important; }
-  .coverBody{ font-size: 9.2pt !important; line-height:1.50 !important; }
-  .coverMedia{
-    left: 7mm !important;
-    right: 7mm !important;
-    bottom: 15mm !important; /* leave room for footer */
-    height: 52mm !important;
-    border-radius: 2mm !important;
-    border: 0.2mm solid #ddd !important;
-    background: #f3f3f3 !important;
-  }
-
-  /* brand bullets compact */
-  .b{
-    padding: 2.6mm !important;
-    border-radius: 2mm !important;
-    background:#fff !important;
-    border: 0.2mm solid #ddd !important;
-  }
-  .bT{ font-size: 8.6pt !important; margin-bottom: 1mm !important; }
-  .bS{ font-size: 9pt !important; line-height:1.33 !important; }
-
-  .quote{
-    margin-top: 2.8mm !important;
-    padding: 3mm !important;
-    border-radius: 2mm !important;
-    border: 0.2mm dashed #ccc !important;
-    background:#fff !important;
-  }
-  .qMark{ font-size: 16pt !important; top: 2mm !important; }
-  .qText{ font-size: 9pt !important; line-height:1.33 !important; }
-
-  /* =========================
-     CATALOG PRINT COMPACT
-     - desc 숨김
-     - 2열 카드로 5개를 1페이지에
-     - QR 텍스트는 유지
-     ========================= */
-  #p3 .desc{ display:none !important; }
-
-  #p3 .catalogNote{
-    padding: 2.6mm !important;
-    border-radius: 2mm !important;
-    border: 0.2mm solid #ddd !important;
-    background:#fff !important;
-    margin-bottom: 2.6mm !important;
-  }
-  #p3 .miniK{ font-size: 8.6pt !important; margin-bottom: 1mm !important; }
-  #p3 .miniV{ font-size: 9pt !important; line-height:1.33 !important; }
-
-  #p3 .catalog{
-    display:grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 2.3mm !important;
-    padding-bottom: 0 !important; /* footer already reserved by paper padding */
-    margin-top: 2.2mm !important;
-  }
-  #p3 .blendCard{
-    padding: 2.6mm !important;
-    border-radius: 2mm !important;
-    border: 0.2mm solid #ddd !important;
-    background:#fff !important;
-  }
-  #p3 .no, #p3 .nm{ font-size: 8.9pt !important; }
-  #p3 .meta{ font-size: 8.2pt !important; margin-top: 1mm !important; }
-
-  #p3 .notes{
-    margin-top: 1.6mm !important;
-    gap: 1.4mm !important;
-  }
-  #p3 .chip{
-    padding: 1.6mm 2.3mm !important;
-    font-size: 8.2pt !important;
-    border: 0.2mm solid #ddd !important;
-    background:#fff !important;
-  }
-
-  #p3 .qr{
-    margin-top: 1.8mm !important;
-    padding-top: 1.6mm !important;
-    border-top: 0.2mm dashed #ccc !important;
-  }
-  #p3 .qrK{ font-size: 8.2pt !important; }
-  #p3 .qrV{ font-size: 8.2pt !important; color:#666 !important; }
-
-  /* partners compact */
-  #p4 .miniGrid{ gap: 2.3mm !important; margin-top: 2.8mm !important; }
-  #p4 .miniCard{
-    padding: 2.6mm !important;
-    border-radius: 2mm !important;
-    border: 0.2mm solid #ddd !important;
-    background:#fff !important;
-  }
-  #p4 .cta{
-    margin-top: 2.8mm !important;
-    padding: 3mm !important;
-    border-radius: 2mm !important;
-    border: 0.2mm solid #ddd !important;
-    background:#fff !important;
-  }
-
-  *{
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+.paper.compact .block .p.small{
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0 0 6px;
 }
+
+/* p3 compact catalog */
+.catalogGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding-bottom: 42px; /* footer space */
+}
+
+.blendMini{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.30);
+  border-radius:14px;
+  padding:8px;
+  overflow:hidden;
+}
+.blendMini .top{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+}
+.blendMini .no{
+  font-size:11px;
+  letter-spacing:.12em;
+  font-weight:900;
+  color: rgba(24,46,87,.82);
+}
+.blendMini .nm{
+  font-size:11px;
+  letter-spacing:.10em;
+  font-weight:900;
+  text-transform:uppercase;
+  color: rgba(14,22,39,.82);
+}
+.blendMini .meta{
+  margin-top:4px;
+  font-size:10px;
+  letter-spacing:.06em;
+  color: rgba(14,22,39,.55);
+}
+.tags{
+  margin-top:6px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.tagChip{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.28);
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:10px;
+  letter-spacing:.04em;
+  color: rgba(14,22,39,.65);
+}
+.blendMini .one{
+  margin-top:6px;
+  font-size:11px;
+  line-height:1.35;
+  color: rgba(14,22,39,.78);
+}
+.qrMini{
+  margin-top:6px;
+  padding-top:6px;
+  border-top:1px dashed rgba(14,22,39,.16);
+  font-size:10px;
+  color: rgba(14,22,39,.62);
+  letter-spacing:.04em;
+}
+.infoMini .one{ color: rgba(14,22,39,.68); }
+
+/* p4 compact partners */
+.benefitGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:8px;
+  margin-top:6px;
+}
+.benefitCard{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.30);
+  border-radius:14px;
+  padding:8px;
+}
+.benefitCard .bT{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:900;
+  color: rgba(14,22,39,.78);
+  margin-bottom:4px;
+}
+.benefitCard .bS{
+  font-size:11px;
+  line-height:1.35;
+  color: rgba(14,22,39,.62);
+}
+.benefitCard .bTag{
+  margin-top:6px;
+  font-size:10px;
+  color: rgba(24,46,87,.72);
+  letter-spacing:.06em;
+}
+
+.tightRule{ margin:10px 0; }
+
+.twoCol{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:8px;
+}
+.miniLine{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.26);
+  border-radius:14px;
+  padding:8px;
+}
+.miniLine .miniK{
+  font-size:10px;
+  margin-bottom:3px;
+}
+.miniLine .miniV{
+  font-size:11px;
+  line-height:1.3;
+}
+
+.compactCta{ margin-top:10px; padding:10px; }
+.compactCta .ctaT{ margin-bottom:4px; }
+.compactCta .ctaS{ font-size:11px; }
+
+/* small screens extra safe */
+@media (max-width: 560px){
+  .paper.compact{ padding: 10px; }
+  .catalogGrid, .benefitGrid, .twoCol{ gap:7px; }
+  .tagChip{ padding:3px 7px; font-size:9.5px; }
+}
+

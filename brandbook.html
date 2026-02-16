@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To. coffee haus | Brand Book</title>
+  <link rel="stylesheet" href="brandbook.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brandMark" href="#" id="homeBtn" aria-label="To. coffee haus home">
+      <span class="tch">T.C.H</span>
+      <span class="dots" aria-hidden="true">
+        <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      </span>
+    </a>
+
+    <div class="topMeta">
+      <div class="bbTitle">BRAND BOOK</div>
+      <div class="bbSub">100×150 · 4 panels · spread preview</div>
+    </div>
+
+    <div class="navBtns">
+      <button class="navBtn" id="prevBtn" type="button" aria-label="Previous spread">←</button>
+      <div class="navState"><span id="spreadTxt">1</span> / <span id="spreadTotal">2</span></div>
+      <button class="navBtn" id="nextBtn" type="button" aria-label="Next spread">→</button>
+    </div>
+  </header>
+
+  <main class="stage" aria-label="Brand book preview">
+    <!-- spread frame -->
+    <section class="spreadFrame" id="spreadFrame">
+      <div class="spread" id="spread"></div>
+    </section>
+
+    <footer class="foot">© To. coffee haus</footer>
+  </main>
+
+  <script src="brandbook.js"></script>
+</body>
+</html>

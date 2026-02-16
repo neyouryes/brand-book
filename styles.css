@@ -5,7 +5,6 @@
   --paper:#FAF8F3;
   --line:rgba(14,22,39,.14);
   --muted:rgba(14,22,39,.62);
-  --soft: rgba(24,46,87,.06);
   --shadow: 0 10px 30px rgba(14,22,39,.08);
 
   --ratioW: 2;
@@ -20,7 +19,7 @@ body{
   background: linear-gradient(180deg, var(--paper), var(--ivory));
   color:var(--ink);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  letter-spacing:.05px;
+  letter-spacing:.02px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -37,7 +36,6 @@ body{
   justify-content:space-between;
   gap:12px;
 }
-
 .brand{ display:flex; align-items:center; gap:12px; }
 .mark{ display:flex; align-items:center; gap:10px; }
 .tch{
@@ -60,13 +58,8 @@ body{
   border-radius:999px;
   font-size:11px;
   letter-spacing:.10em;
-  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
 }
-.navItem:hover{
-  transform: translateY(-1px);
-  border-color: rgba(24,46,87,.28);
-  box-shadow: 0 0 0 4px rgba(24,46,87,.06);
-}
+.navItem:hover{ border-color: rgba(24,46,87,.28); }
 
 /* dots */
 .dots{ display:inline-flex; gap:6px; transform: translateY(1px); }
@@ -98,7 +91,6 @@ body{
 
 /* viewer */
 .viewer{ position:relative; display:grid; align-items:center; }
-
 .deck{
   display:flex;
   overflow-x:auto;
@@ -110,7 +102,6 @@ body{
   scrollbar-width:none;
 }
 .deck::-webkit-scrollbar{ display:none; }
-
 .slide{
   flex: 0 0 100%;
   scroll-snap-align: center;
@@ -120,7 +111,6 @@ body{
 
 /* paper */
 .paper{
-  position:relative;
   width: min(92vw, 420px);
   aspect-ratio: var(--ratioW) / var(--ratioH);
   border:1px solid var(--line);
@@ -131,7 +121,7 @@ body{
   overflow:hidden;
 }
 
-/* ✅ 핵심: 페이지를 top/mid/foot로 분리해 겹침 제거 */
+/* ✅ 내부 고정 레이아웃 */
 .paperGrid{
   height:100%;
   display:grid;
@@ -139,7 +129,7 @@ body{
   gap: 10px;
 }
 .paperTop{ min-height:0; }
-.paperMid{ min-height:0; }
+.paperMid{ min-height:0; overflow:hidden; } /* ✅ 밖으로 못 나가게 */
 .paperFoot{
   font-size:11px;
   color: rgba(14,22,39,.55);
@@ -149,9 +139,9 @@ body{
   align-items:center;
 }
 
+.compact{ padding:12px; }
 .compact .paperGrid{ gap: 8px; }
 
-/* page head */
 .pageHead{
   display:flex;
   align-items:baseline;
@@ -173,8 +163,6 @@ body{
   color: var(--navy);
 }
 
-/* text */
-.block{ margin-top:4px; }
 .h2{
   font-size:12px;
   letter-spacing:.14em;
@@ -185,12 +173,12 @@ body{
 .p{
   margin:0 0 8px;
   font-size:12px;
-  line-height:1.75;
+  line-height:1.7;
   color: rgba(14,22,39,.78);
 }
 .p.small{
-  font-size:11.2px;
-  line-height:1.55;
+  font-size:11px;
+  line-height:1.5;
   margin:0;
 }
 .muted{ color: var(--muted); }
@@ -199,47 +187,6 @@ body{
   margin:10px 0;
   height:1px;
   background: linear-gradient(90deg, rgba(14,22,39,.0), rgba(14,22,39,.16), rgba(14,22,39,.0));
-}
-
-/* bullets */
-.bullets{ display:grid; gap:10px; }
-.b{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.32);
-  border-radius:14px;
-  padding:10px;
-}
-.bT{
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color: rgba(14,22,39,.78);
-  font-weight:900;
-  margin-bottom:4px;
-}
-.bS{ font-size:12px; line-height:1.65; color: var(--muted); }
-
-/* quote */
-.quote{
-  margin-top:12px;
-  border:1px dashed rgba(14,22,39,.18);
-  background:rgba(255,255,255,.28);
-  border-radius:16px;
-  padding:12px;
-  position:relative;
-}
-.qMark{
-  position:absolute;
-  left:12px; top:8px;
-  font-size:22px;
-  color: rgba(24,46,87,.40);
-}
-.qText{
-  padding-left:12px;
-  font-size:12px;
-  line-height:1.7;
-  color: rgba(14,22,39,.74);
-  letter-spacing:.04em;
 }
 
 /* cover */
@@ -284,6 +231,46 @@ body{
   background: rgba(24,46,87,.06);
 }
 
+/* bullets */
+.bullets{ display:grid; gap:10px; }
+.b{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.32);
+  border-radius:14px;
+  padding:10px;
+}
+.bT{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color: rgba(14,22,39,.78);
+  font-weight:900;
+  margin-bottom:4px;
+}
+.bS{ font-size:12px; line-height:1.6; color: var(--muted); }
+
+/* quote */
+.quote{
+  margin-top:12px;
+  border:1px dashed rgba(14,22,39,.18);
+  background:rgba(255,255,255,.28);
+  border-radius:16px;
+  padding:12px;
+  position:relative;
+}
+.qMark{
+  position:absolute;
+  left:12px; top:8px;
+  font-size:22px;
+  color: rgba(24,46,87,.40);
+}
+.qText{
+  padding-left:12px;
+  font-size:12px;
+  line-height:1.6;
+  color: rgba(14,22,39,.74);
+}
+
 /* CTA */
 .cta{
   border:1px solid rgba(24,46,87,.22);
@@ -301,13 +288,8 @@ body{
 }
 .ctaS{
   font-size:11.2px;
-  line-height:1.55;
-  color: rgba(14,22,39,.72);
-}
-.ctaD{
-  margin-top:6px;
-  font-size:10.6px;
   line-height:1.45;
+  color: rgba(14,22,39,.72);
 }
 
 /* nav buttons */
@@ -317,7 +299,6 @@ body{
   transform:translateY(-50%);
   border:1px solid var(--line);
   background: rgba(255,255,255,.60);
-  backdrop-filter: blur(10px);
   width:42px; height:42px;
   border-radius:999px;
   font-size:22px;
@@ -337,8 +318,6 @@ body{
   font-size:11px;
   letter-spacing:.10em;
 }
-
-/* global footer */
 .globalFoot{
   padding: 0 14px 22px;
   display:flex;
@@ -348,34 +327,42 @@ body{
   letter-spacing:.08em;
   color: rgba(14,22,39,.55);
 }
-
-/* responsive */
 @media (max-width: 560px){
   .navBtn{ display:none; }
   .paper{ width: min(94vw, 420px); }
 }
 
-/* =========================
-   PAGE 03: catalog tiles
-   ========================= */
-.catalogGrid{
+/* ========= 핵심: 줄수 강제 ========= */
+.clamp1,.clamp2,.clamp3{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.clamp1{ -webkit-line-clamp:1; }
+.clamp2{ -webkit-line-clamp:2; }
+.clamp3{ -webkit-line-clamp:3; }
+
+/* ========= p3: 6칸을 '페이지 안에서' 균등 분배 ========= */
+.catalogGrid.fixed6{
+  height:100%;
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  height: 100%;
-  align-content: start;
+  grid-template-rows: 1fr 1fr 1fr; /* ✅ 3줄 고정 */
+  gap:10px;
 }
+
 .tile{
   border:1px solid var(--line);
   background:rgba(255,255,255,.30);
   border-radius:16px;
   padding:10px;
-  min-height: 0;
+  min-height:0;
+  overflow:hidden; /* ✅ 카드 밖으로 못나감 */
   display:flex;
   flex-direction:column;
   gap:6px;
 }
-.tileTop{ display:flex; flex-direction:column; gap:4px; }
+
 .titleRow{ display:flex; align-items:baseline; gap:8px; }
 .no{
   font-size:11px;
@@ -391,13 +378,13 @@ body{
   color: rgba(14,22,39,.82);
 }
 .meta{
-  font-size:10.4px;
-  letter-spacing:.06em;
+  font-size:10.2px;
+  letter-spacing:.04em;
   color: rgba(14,22,39,.55);
 }
 
-/* hashtags: 한 줄 제한(가독성) */
-.tagsOneLine{
+/* 해시태그: 2개만, 한줄 */
+.tagsShort{
   display:flex;
   gap:6px;
   flex-wrap:nowrap;
@@ -409,22 +396,13 @@ body{
   border-radius:999px;
   padding:4px 8px;
   font-size:10px;
-  letter-spacing:.04em;
   color: rgba(14,22,39,.65);
   white-space:nowrap;
 }
-.line{
-  font-size:11.2px;
-  line-height:1.45;
-  color: rgba(14,22,39,.78);
-}
-.note{
-  font-size:10.8px;
-  line-height:1.4;
-  color: rgba(14,22,39,.68);
-}
+.line{ font-size:11.1px; line-height:1.45; color: rgba(14,22,39,.78); }
+.note{ font-size:10.6px; line-height:1.35; color: rgba(14,22,39,.68); }
 
-/* info tile: QR center, text compact */
+/* INFO QR */
 .tileInfo .qrCenter{
   margin-top:auto;
   display:flex;
@@ -434,16 +412,22 @@ body{
   border-top:1px dashed rgba(14,22,39,.16);
 }
 .qrImgBig{
-  width: 78px;
-  height: 78px;
+  width: 70px;
+  height: 70px;
   border-radius: 14px;
   border:1px solid rgba(14,22,39,.10);
   background:#fff;
 }
 
-/* =========================
-   PAGE 04: partners
-   ========================= */
+/* ========= p4: 내용량 제한 + 스택 간격 최소 ========= */
+.p4Stack{
+  height:100%;
+  display:grid;
+  grid-template-rows: auto auto auto auto; /* benefit / dose / flow / cta */
+  gap:10px;
+  overflow:hidden;
+}
+
 .benefitGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -454,6 +438,7 @@ body{
   background:rgba(255,255,255,.30);
   border-radius:16px;
   padding:10px;
+  overflow:hidden;
 }
 .benefitCard .bT{
   font-size:11px;
@@ -464,24 +449,23 @@ body{
   margin-bottom:6px;
 }
 .benefitCard .bS{
-  font-size:11px;
-  line-height:1.45;
+  font-size:10.9px;
+  line-height:1.4;
   color: rgba(14,22,39,.62);
 }
 .benefitCard .bD{
   margin-top:6px;
-  font-size:10.8px;
-  line-height:1.4;
+  font-size:10.6px;
+  line-height:1.35;
   color: rgba(14,22,39,.62);
 }
 
-/* dose box */
 .doseBox{
-  margin-top:10px;
   border:1px solid var(--line);
   background:rgba(255,255,255,.24);
   border-radius:16px;
   padding:10px;
+  overflow:hidden;
 }
 .doseT{
   font-size:11px;
@@ -492,18 +476,17 @@ body{
   margin-bottom:6px;
 }
 .doseP{
-  font-size:10.9px;
-  line-height:1.45;
+  font-size:10.8px;
+  line-height:1.4;
   color: rgba(14,22,39,.70);
 }
 
-/* flow */
 .flow{
-  margin-top:10px;
   border:1px solid var(--line);
   background:rgba(255,255,255,.24);
   border-radius:16px;
   padding:10px;
+  overflow:hidden;
 }
 .flowT{
   font-size:11px;
@@ -523,6 +506,7 @@ body{
   background:rgba(255,255,255,.35);
   border-radius:14px;
   padding:10px;
+  overflow:hidden;
 }
 .flowK{
   font-size:10px;
@@ -545,8 +529,8 @@ body{
 }
 
 @media (max-width: 560px){
-  .catalogGrid{ gap:8px; }
-  .tile{ padding:9px; }
-  .qrImgBig{ width:72px; height:72px; }
+  .catalogGrid.fixed6{ gap:8px; }
+  .benefitGrid{ gap:8px; }
   .flowGrid{ gap:8px; }
+  .tile, .benefitCard, .doseBox, .flow, .cta{ padding:9px; }
 }

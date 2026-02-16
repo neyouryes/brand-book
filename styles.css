@@ -128,23 +128,10 @@ body{
   grid-template-rows: auto 1fr auto;
   gap: 10px;
 }
-.paperTop{ min-height:0; }
 
 .paperMid{
   min-height:0;
-  overflow:auto;
-  padding-right:6px;
-}
-.paperMid::-webkit-scrollbar{ width:6px; }
-.paperMid::-webkit-scrollbar-thumb{ background: rgba(14,22,39,.12); border-radius:999px; }
-
-.paperFoot{
-  font-size:11px;
-  color: rgba(14,22,39,.55);
-  letter-spacing:.08em;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  overflow:hidden; /* ✅ 스크롤 자체를 막고, 무조건 1페이지에 수납 */
 }
 
 .compact{ padding:12px; }
@@ -322,6 +309,8 @@ body{
 }
 
 /* ===== Page 03 Catalog ===== */
+.p3Mid{ padding-top:2px; }
+
 .catalogGrid.fixed6{
   height:100%;
   display:grid;
@@ -359,46 +348,66 @@ body{
   color: rgba(14,22,39,.82);
 }
 .bigNo{ font-size:12px; letter-spacing:.14em; }
-.bigNm{ font-size:12px; letter-spacing:.12em; }
+.bigNm{ font-size:12px; letter-spacing:.10em; }
 
-.oneLineTitle{
-  letter-spacing: .06em !important; /* ✅ 자간 줄여 1줄 고정 */
+.titleTight{
+  letter-spacing:.04em !important; /* ✅ 2줄 깨짐 방지 */
+  white-space:nowrap;
 }
 
 .meta{
   font-size:10.2px;
-  letter-spacing:.04em;
+  letter-spacing:.03em;
   color: rgba(14,22,39,.55);
 }
 .thinKr{
   font-size:10.4px;
   color: rgba(14,22,39,.55);
-  letter-spacing:.01em; /* ✅ 자간 줄임 */
+  letter-spacing:0;
+  white-space:nowrap; /* ✅ 1줄 고정 */
 }
 
-/* INFO 2줄만 + 한줄 고정 */
+/* INFO 2줄 + QR */
 .infoFill{
-  margin-top:6px;
+  margin-top:4px;
   font-size:10.6px;
   line-height:1.25;
   color: rgba(14,22,39,.62);
 }
 .compactInfo > div{
   margin-bottom:4px;
-  letter-spacing: .01em;   /* ✅ 자간 줄임 */
-  white-space: nowrap;     /* ✅ 한 줄 고정 */
+  letter-spacing:0;
+  white-space:nowrap;
   overflow:hidden;
   text-overflow: ellipsis;
 }
 .compactInfo > div:last-child{ margin-bottom:0; }
 
-/* tags: 안 잘리게 */
-.tagsWide{
+.qrOnly{
+  margin-top:auto;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  padding-top:6px;
+  border-top:1px dashed rgba(14,22,39,.16);
+}
+.qrImgXS{
+  width:44px !important;
+  height:44px !important;
+  display:block !important;
+  object-fit:contain !important;
+  border-radius:12px;
+  border:1px solid rgba(14,22,39,.10);
+  background:#fff;
+}
+
+/* ✅ 해시태그 “한 줄 고정”으로 잘림 해결 */
+.tagsOneLine{
   display:flex;
   gap:6px;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
   overflow:hidden;
-  max-height:80px; /* ✅ 해시태그 더 보이게 약간 증가 */
+  margin-top:2px;
 }
 .tagChip{
   border:1px solid var(--line);
@@ -409,12 +418,7 @@ body{
   line-height:1.2;
   color: rgba(14,22,39,.65);
   white-space:nowrap;
-  margin-bottom:3px;
 }
-
-/* ✅ 해시태그 아래 여백 줄임 */
-.spacer{ height:4px; }
-.spacer.tight{ height:2px; }
 
 .descBlock{ margin-top:2px; }
 .descLine{
@@ -430,7 +434,7 @@ body{
   color: rgba(14,22,39,.62);
 }
 
-/* 컵노트 값만 */
+/* 컵노트 */
 .cupNote{
   margin-top:auto;
   padding-top:6px;
@@ -442,33 +446,12 @@ body{
   line-height:1.35;
 }
 
-/* QR */
-.qrOnly{
-  margin-top:auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding-top:8px;
-  border-top:1px dashed rgba(14,22,39,.16);
-}
-.qrImgSm{
-  width:52px !important;
-  height:52px !important;
-  max-width:52px !important;
-  max-height:52px !important;
-  display:block !important;
-  object-fit:contain !important;
-  border-radius:12px;
-  border:1px solid rgba(14,22,39,.10);
-  background:#fff;
-}
-
 /* ===== Page 04 Partners ===== */
-.p4Stack{
+.p4Mid{
   height:100%;
   display:grid;
-  grid-template-rows: auto auto auto;
-  gap:6px;
+  grid-template-rows: 1fr auto auto;
+  gap:8px;
 }
 
 .benefitGrid{
@@ -493,10 +476,10 @@ body{
 }
 .benefitCard .bS{
   font-size:10.7px;
-  line-height:1.40;
+  line-height:1.38;
   color: rgba(14,22,39,.62);
 }
-.bSdim{ color: rgba(14,22,39,.52); } /* ✅ “설명” 줄은 살짝 연하게 */
+.bSdim{ color: rgba(14,22,39,.52); }
 
 .doseBox{
   border:1px solid var(--line);
@@ -518,12 +501,18 @@ body{
   color: rgba(14,22,39,.70);
   margin-bottom:6px;
 }
-.doseBullets{
-  font-size:10.6px;
-  line-height:1.35;
-  color: rgba(14,22,39,.62);
+.doseLines{
   display:grid;
   gap:4px;
+}
+.dl{
+  font-size:10.6px;
+  line-height:1.25;
+  color: rgba(14,22,39,.62);
+  padding:6px 8px;
+  border:1px solid rgba(14,22,39,.10);
+  background: rgba(255,255,255,.22);
+  border-radius:12px;
 }
 
 /* CTA */

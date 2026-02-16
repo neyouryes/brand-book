@@ -4,54 +4,404 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>To. coffee haus | Brand Book</title>
-  <link rel="stylesheet" href="book.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
+
+  <header class="topbar">
     <div class="brand">
-      <a class="brandMark" href="#" id="homeBtn" aria-label="To. coffee haus home">
+      <div class="mark">
         <span class="tch">T.C.H</span>
         <span class="dots" aria-hidden="true">
           <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
         </span>
-      </a>
+      </div>
       <div class="brandText">
         <div class="name">TO. COFFEE HAUS</div>
-        <div class="tag">brand book · partners</div>
+        <div class="tag">brand book · 4 spreads</div>
       </div>
     </div>
 
-    <div class="tools">
-      <div class="navRow">
-        <button class="btn" id="prevBtn" type="button">← Prev</button>
-        <div class="meta"><span id="spreadName">Spread 01</span> · <span id="pageHint">01–02</span></div>
-        <button class="btn" id="nextBtn" type="button">Next →</button>
-      </div>
-
-      <div class="seg">
-        <button class="segBtn isOn" data-spread="0" type="button">01–02</button>
-        <button class="segBtn" data-spread="1" type="button">03–04</button>
-      </div>
-    </div>
+    <nav class="nav">
+      <a href="#p1" class="navItem">01 Cover</a>
+      <a href="#p2" class="navItem">02 Blend</a>
+      <a href="#p3" class="navItem">03 Catalog</a>
+      <a href="#p4" class="navItem">04 Partners</a>
+    </nav>
   </header>
 
-  <main class="main">
-    <section class="stage">
-      <!-- spread container -->
-      <div class="spreadWrap">
-        <div class="spread" id="spread">
-          <!-- LEFT PAGE -->
-          <article class="page" id="pageL" aria-label="Left page"></article>
+  <main class="wrap">
 
-          <!-- RIGHT PAGE -->
-          <article class="page" id="pageR" aria-label="Right page"></article>
+    <!-- PAGE 1 / COVER -->
+    <section id="p1" class="spread">
+      <article class="page left cover">
+        <div class="coverInner">
+          <div class="kicker">To. coffee haus</div>
+          <h1 class="coverTitle">BLEND ARCHIVE</h1>
+          <p class="coverSub">bean catalog · recipe · partners</p>
+
+          <div class="coverLine"></div>
+
+          <p class="coverBody">
+            매일의 한 잔이 ‘좋은 선택’으로 남도록.<br/>
+            커피의 기준이 되는 블렌드를 만듭니다.
+          </p>
         </div>
-      </div>
 
-      <footer class="foot">© To. coffee haus</footer>
+        <footer class="pageFoot">
+          <span>© To. coffee haus</span>
+        </footer>
+      </article>
+
+      <article class="page right">
+        <div class="pageHead">
+          <div class="pageNo">01</div>
+          <div class="pageName">Cover</div>
+        </div>
+
+        <div class="block">
+          <div class="h2">A note</div>
+          <p class="p">
+            이 브랜드북은 100×150mm 기준의<br/>
+            좌우 열람(스프레드) 레이아웃으로 설계되었습니다.
+          </p>
+          <p class="p muted">
+            웹에서 먼저 구성 → Adobe에서 동일하게 재현 → 2단 엽서 제작
+          </p>
+        </div>
+
+        <div class="miniCard">
+          <div class="miniK">Palette</div>
+          <div class="miniV">Paper · Ivory · Navy · Ink</div>
+        </div>
+
+        <footer class="pageFoot">
+          <span class="muted">Spread size: 200×150mm</span>
+        </footer>
+      </article>
     </section>
+
+    <!-- PAGE 2 / BLEND INTRO -->
+    <section id="p2" class="spread">
+      <article class="page left">
+        <div class="pageHead">
+          <div class="pageNo">02</div>
+          <div class="pageName">Blend</div>
+        </div>
+
+        <div class="block">
+          <div class="h2">Our Blend</div>
+          <p class="p">
+            블렌드는 ‘맛을 섞는 일’이 아니라<br/>
+            매일 같은 만족을 설계하는 일이라고 생각합니다.
+          </p>
+          <p class="p">
+            누구에게나 익숙하게 다가가되,<br/>
+            마실수록 더 많은 디테일이 남는 잔.<br/>
+            To. coffee haus의 블렌드는 그 방향으로 만들어집니다.
+          </p>
+        </div>
+
+        <div class="rule"></div>
+
+        <div class="bullets">
+          <div class="b">
+            <div class="bT">Consistency</div>
+            <div class="bS">컵의 인상과 흐름이 매일 흔들리지 않게.</div>
+          </div>
+          <div class="b">
+            <div class="bT">Clarity</div>
+            <div class="bS">설명할 수 있는 맛, 납득 가능한 선택.</div>
+          </div>
+          <div class="b">
+            <div class="bT">Usability</div>
+            <div class="bS">매장에서도, 집에서도 쉽게 좋은 결과.</div>
+          </div>
+        </div>
+
+        <footer class="pageFoot">
+          <span class="muted">To. coffee haus · blend philosophy</span>
+        </footer>
+      </article>
+
+      <article class="page right">
+        <div class="pageHead">
+          <div class="pageNo">02</div>
+          <div class="pageName">What you get</div>
+        </div>
+
+        <div class="block">
+          <div class="h2">For everyday</div>
+          <p class="p">
+            커피는 결국 일상에서 가장 오래 남습니다.<br/>
+            그래서 우리는 “매일 마시기 좋은데, 쉽게 잊히지 않는” 균형을 목표로 합니다.
+          </p>
+        </div>
+
+        <div class="quote">
+          <div class="qMark">“</div>
+          <div class="qText">
+            익숙함 속에 디테일이 남는 한 잔.
+          </div>
+        </div>
+
+        <div class="miniGrid">
+          <div class="miniCard">
+            <div class="miniK">Roast</div>
+            <div class="miniV">Light → Dark line-up</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniK">Usage</div>
+            <div class="miniV">Espresso · Filter · Iced</div>
+          </div>
+        </div>
+
+        <footer class="pageFoot">
+          <span class="muted">Next: Blend Catalog</span>
+        </footer>
+      </article>
+    </section>
+
+    <!-- PAGE 3 / CATALOG (네가 방금 만든 원두 소개 + ORIGIN 포함) -->
+    <section id="p3" class="spread">
+      <article class="page left">
+        <div class="pageHead">
+          <div class="pageNo">03</div>
+          <div class="pageName">Catalog</div>
+        </div>
+
+        <div class="block">
+          <div class="h2">Blending Collection</div>
+          <p class="p">
+            다섯 가지 블렌드는 서로 다른 “하루의 장면”을 위해 만들어졌습니다.<br/>
+            각 원산지는 목적에 맞게 조합되어, 컵에서 분명한 인상을 남깁니다.
+          </p>
+        </div>
+
+        <div class="rule"></div>
+
+        <div class="catalogNote">
+          <div class="miniK">How to read</div>
+          <div class="miniV">
+            NO. — 성격 / Origin — 인상의 근거 / Note — 기억에 남는 키워드
+          </div>
+        </div>
+
+        <footer class="pageFoot">
+          <span class="muted">To. coffee haus · blend catalog</span>
+        </footer>
+      </article>
+
+      <article class="page right">
+        <div class="pageHead">
+          <div class="pageNo">03</div>
+          <div class="pageName">Blend line-up</div>
+        </div>
+
+        <div class="catalog">
+
+          <div class="blendCard">
+            <div class="row1">
+              <div class="no">NO.1</div>
+              <div class="nm">DAILY</div>
+            </div>
+            <div class="meta">Brazil · Guatemala · Ethiopia</div>
+            <p class="desc">
+              가볍고 산뜻한 고소함을 중심에 둔 블렌드입니다.
+              브라질의 안정적인 바디를 바탕으로 과테말라의 균형감,
+              에티오피아의 밝은 향이 은은하게 더해집니다.
+              산미는 낮지만 무겁지 않고, 부드러운 단맛과 고소함이 자연스럽게 이어집니다.
+            </p>
+            <div class="notes">
+              <span class="chip">Cashew Nut</span>
+              <span class="chip">Caramel</span>
+              <span class="chip">Milk Chocolate</span>
+            </div>
+          </div>
+
+          <div class="blendCard">
+            <div class="row1">
+              <div class="no">NO.2</div>
+              <div class="nm">SIGNATURE</div>
+            </div>
+            <div class="meta">Tanzania · Guatemala · Ethiopia</div>
+            <p class="desc">
+              탄자니아의 깊이 있는 과일 향을 중심으로 과테말라의 단단한 균형,
+              에티오피아의 화사한 향을 더했습니다.
+              묵직하지만 답답하지 않고, 레드와인을 연상시키는 과일의 농도와
+              진득한 단맛이 길게 이어집니다.
+            </p>
+            <div class="notes">
+              <span class="chip">Kyoho Grape</span>
+              <span class="chip">Dried Plum</span>
+              <span class="chip">Red Wine</span>
+              <span class="chip">Syrup</span>
+            </div>
+          </div>
+
+          <div class="blendCard">
+            <div class="row1">
+              <div class="no">NO.3</div>
+              <div class="nm">SWEETNESS</div>
+            </div>
+            <div class="meta">Brazil · Guatemala · Colombia</div>
+            <p class="desc">
+              브라질의 크리미한 질감과 콜롬비아의 부드러운 산미,
+              과테말라의 단단한 베이스가 어우러집니다.
+              티라미수를 떠올리게 하는 디저트 감각,
+              달콤쌉싸름한 균형과 안정적인 바디감이 특징입니다.
+            </p>
+            <div class="notes">
+              <span class="chip">Tiramisu</span>
+              <span class="chip">Digestive Cookie</span>
+              <span class="chip">Oatmeal</span>
+            </div>
+          </div>
+
+          <div class="blendCard">
+            <div class="row1">
+              <div class="no">NO.4</div>
+              <div class="nm">DARK</div>
+            </div>
+            <div class="meta">Brazil · Colombia</div>
+            <p class="desc">
+              브라질의 묵직한 고소함과 콜롬비아의 안정적인 단맛을 중심으로 완성했습니다.
+              깊은 로스팅이지만 거칠지 않고,
+              초콜릿의 쌉싸름함과 긴 여운이 차분하게 이어집니다.
+            </p>
+            <div class="notes">
+              <span class="chip">Dark Chocolate</span>
+              <span class="chip">Roasted Walnut</span>
+              <span class="chip">Long Finish</span>
+            </div>
+          </div>
+
+          <div class="blendCard">
+            <div class="row1">
+              <div class="no">NO.5</div>
+              <div class="nm">DECAFFEINE</div>
+            </div>
+            <div class="meta">Brazil · Ethiopia</div>
+            <p class="desc">
+              브라질의 달콤한 베이스에 에티오피아의 은은한 향을 더한 디카페인 블렌드입니다.
+              홍시를 닮은 부드러운 단맛과 가볍게 남는 여운이 특징이며,
+              시간에 구애받지 않고 편안하게 즐길 수 있습니다.
+            </p>
+            <div class="notes">
+              <span class="chip">Persimmon</span>
+              <span class="chip">Caramel</span>
+              <span class="chip">Popcorn</span>
+              <span class="chip">Juicy</span>
+            </div>
+          </div>
+
+        </div>
+
+        <footer class="pageFoot">
+          <span class="muted">Next: Partners</span>
+        </footer>
+      </article>
+    </section>
+
+    <!-- PAGE 4 / PARTNERS BENEFITS -->
+    <section id="p4" class="spread">
+      <article class="page left">
+        <div class="pageHead">
+          <div class="pageNo">04</div>
+          <div class="pageName">Partners</div>
+        </div>
+
+        <div class="block">
+          <div class="h2">Partners Benefit</div>
+          <p class="p">
+            파트너 매장이 커피에 집중할 수 있도록,<br/>
+            운영에 필요한 실무 지원을 함께 제공합니다.
+          </p>
+          <p class="p muted">
+            디자인·메뉴 개발은 소정의 비용이 발생하며,<br/>
+            교육과 관리(방문/피드백)는 무상으로 제공됩니다.
+          </p>
+        </div>
+
+        <div class="rule"></div>
+
+        <div class="bullets tight">
+          <div class="b">
+            <div class="bT">Package Design Support</div>
+            <div class="bS">원두/납품 라벨, 패키지 톤 & 레이아웃 지원 (유상)</div>
+          </div>
+          <div class="b">
+            <div class="bT">Menu Development</div>
+            <div class="bS">시그니처/시즌 메뉴 기획 및 레시피 개발 (유상)</div>
+          </div>
+          <div class="b">
+            <div class="bT">Coffee Training</div>
+            <div class="bS">추출 세팅, 레시피 표준화, 서비스 교육 (무상)</div>
+          </div>
+          <div class="b">
+            <div class="bT">Regular Care</div>
+            <div class="bS">정기 방문 및 운영 피드백, 품질 유지 관리 (무상)</div>
+          </div>
+        </div>
+
+        <footer class="pageFoot">
+          <span class="muted">To. coffee haus · partners program</span>
+        </footer>
+      </article>
+
+      <article class="page right">
+        <div class="pageHead">
+          <div class="pageNo">04</div>
+          <div class="pageName">Efficiency</div>
+        </div>
+
+        <div class="block">
+          <div class="h2">16.8g Standard</div>
+          <p class="p">
+            우리는 16.8g 도징을 기준으로<br/>
+            충분히 진한 맛과 농도를 낼 수 있도록 설계합니다.
+          </p>
+          <p class="p">
+            결과적으로 원두 단가 절감과 로스 감소에 유리하며,<br/>
+            매장 운영의 효율을 높이는 방향으로 이어집니다.
+          </p>
+        </div>
+
+        <div class="miniGrid">
+          <div class="miniCard">
+            <div class="miniK">Cost</div>
+            <div class="miniV">dose efficiency</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniK">Loss</div>
+            <div class="miniV">less waste</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniK">Taste</div>
+            <div class="miniV">dense & clean</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniK">Support</div>
+            <div class="miniV">training & care</div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <div class="ctaT">Let’s talk</div>
+          <div class="ctaS">파트너 문의: DM / Email / Form</div>
+        </div>
+
+        <footer class="pageFoot">
+          <span>© To. coffee haus</span>
+        </footer>
+      </article>
+    </section>
+
   </main>
 
-  <script src="book.js"></script>
+  <footer class="globalFoot">
+    <span class="muted">Tip: 모바일에서는 스크롤로 페이지를 넘기고, 데스크탑에서는 2장씩 스프레드로 보입니다.</span>
+  </footer>
+
 </body>
 </html>
